@@ -1,18 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/linearLayout"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".MainActivity">
+	android:layout_height="match_parent">
 
-	<TextView
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Hello World!"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintLeft_toLeftOf="parent"
-		app:layout_constraintRight_toRightOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+	<android.support.constraint.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/Weather"
+		tools:context=".MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+		<TextView
+			android:id="@+id/defaultTemp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="23dp"
+			android:layout_marginRight="23dp"
+			android:fontFamily="@font/allerta"
+			android:text="100"
+			android:textColor="#fff"
+			android:textSize="135sp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.447"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintVertical_bias="0.499" />
+
+		<TextView
+			android:id="@+id/timeValue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="24dp"
+			android:fontFamily="@font/allerta"
+			android:text="At 5:00PM it will be"
+			android:textColor="@color/half_white"
+			android:textSize="24sp"
+			app:layout_constraintBottom_toTopOf="@+id/defaultTemp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent" />
+
+		<TextView
+			android:id="@+id/locationValue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="40dp"
+			android:layout_marginLeft="40dp"
+			android:layout_marginBottom="28dp"
+			android:fontFamily="@font/allerta"
+			android:text="Rock Island, IL"
+			android:textColor="#ffff"
+			android:textSize="25sp"
+			app:layout_constraintBottom_toTopOf="@+id/timeValue"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.513"
+			app:layout_constraintStart_toStartOf="parent" />
+
+		<ImageView
+			android:id="@+id/imageView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="5dp"
+			android:layout_marginLeft="5dp"
+			android:layout_marginTop="50dp"
+			app:layout_constraintStart_toEndOf="@+id/defaultTemp"
+			app:layout_constraintTop_toTopOf="@+id/defaultTemp"
+			app:srcCompat="@drawable/degree" />
+
+		<ImageView
+			android:id="@+id/imageView2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="20dp"
+			android:layout_marginRight="20dp"
+			app:layout_constraintBottom_toBottomOf="@+id/locationValue"
+			app:layout_constraintEnd_toStartOf="@+id/locationValue"
+			app:srcCompat="@drawable/wind" />
+
+		<ImageView
+			android:id="@+id/imageView3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="60dp"
+			android:layout_marginBottom="40dp"
+			app:layout_constraintBottom_toTopOf="@+id/locationValue"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.498"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/refresh" />
+
+		<android.support.constraint.Guideline
+			android:id="@+id/guideline"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="120dp"
+			android:layout_marginLeft="120dp"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="97dp"
+			app:layout_constraintStart_toStartOf="parent" />
+
+		<android.support.constraint.Guideline
+			android:id="@+id/guideline2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="120dp"
+			android:layout_marginRight="120dp"
+			android:orientation="vertical"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintGuide_begin="262dp" />
+
+		<TextView
+			android:id="@+id/humidityTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:fontFamily="@font/allerta"
+			android:text="HUMIDITY"
+			android:textColor="@color/half_white"
+			app:layout_constraintEnd_toStartOf="@+id/guideline"
+			app:layout_constraintStart_toStartOf="@+id/guideline"
+			app:layout_constraintTop_toBottomOf="@+id/defaultTemp" />
+
+		<TextView
+			android:id="@+id/humidityValue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:fontFamily="@font/allerta"
+			android:text="0.88"
+			android:textColor="#fff"
+			android:textSize="25sp"
+			app:layout_constraintEnd_toEndOf="@+id/humidityTitle"
+			app:layout_constraintStart_toStartOf="@+id/humidityTitle"
+			app:layout_constraintTop_toBottomOf="@+id/humidityTitle" />
+
+		<TextView
+			android:id="@+id/precipTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:fontFamily="@font/allerta"
+			android:text="RAIN/SNOW?"
+			android:textColor="@color/half_white"
+			app:layout_constraintEnd_toStartOf="@+id/guideline2"
+			app:layout_constraintStart_toStartOf="@+id/guideline2"
+			app:layout_constraintTop_toBottomOf="@+id/defaultTemp" />
+
+		<TextView
+			android:id="@+id/precipValue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:fontFamily="@font/allerta"
+			android:text="50%"
+			android:textColor="#fff"
+			android:textSize="25sp"
+			app:layout_constraintEnd_toEndOf="@+id/precipTitle"
+			app:layout_constraintStart_toStartOf="@+id/precipTitle"
+			app:layout_constraintTop_toBottomOf="@+id/precipTitle" />
+
+		<TextView
+			android:id="@+id/summaryValue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="32dp"
+			android:fontFamily="@font/allerta"
+			android:text="Clear and windy"
+			android:textColor="#fff"
+			android:textSize="25sp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/precipValue" />
+
+		<android.support.constraint.Guideline
+			android:id="@+id/guideline4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="205dp" />
+
+		<android.support.constraint.Guideline
+			android:id="@+id/guideline5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="323dp" />
+
+		<android.support.constraint.Guideline
+			android:id="@+id/guideline6"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			app:layout_constraintGuide_begin="59dp" />
+
+
+	</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>
