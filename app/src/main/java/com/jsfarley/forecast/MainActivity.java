@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
 	private CurrentWeather currentWeather;
 	private ImageView iconImageView;
-	final double latitude = 41.5236;
-	final double longitude = -90.5776;
+	final double latitude = 41.5095;
+	final double longitude = -90.5787;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
