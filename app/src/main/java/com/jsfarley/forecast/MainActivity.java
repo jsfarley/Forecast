@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.jsfarley.forecast.databinding.ActivityMainBinding;
@@ -156,5 +158,11 @@ public class MainActivity extends AppCompatActivity {
 	private void networkDialogError() {
 		NetworkDialogFragment networkDialogFragment = new NetworkDialogFragment();
 		networkDialogFragment.show(getSupportFragmentManager(), "Network Error");
+	}
+
+	//Refresh
+	public void refreshOnClick(View view){
+		getForecast(latitude, longitude);
+		Toast.makeText(this, "Refreshing", Toast.LENGTH_LONG).show();
 	}
 }

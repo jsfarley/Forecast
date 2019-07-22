@@ -96,7 +96,8 @@
 			app:layout_constraintHorizontal_bias="0.498"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent"
-			app:srcCompat="@drawable/refresh" />
+			app:srcCompat="@drawable/refresh"
+			android:onClick="refreshOnClick"/>
 
 		<android.support.constraint.Guideline
 			android:id="@+id/guideline"
@@ -136,7 +137,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="16dp"
 			android:fontFamily="@font/allerta"
-			android:text="@{String.valueOf(weather.humidity), default=`0.88`}"
+			android:text="@{String.valueOf(Math.round(weather.humidity * 100)) + `%`, default=`50%`}"
 			android:textColor="#fff"
 			android:textSize="25sp"
 			app:layout_constraintEnd_toEndOf="@+id/humidityTitle"
@@ -161,7 +162,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="16dp"
 			android:fontFamily="@font/allerta"
-			android:text="@{String.valueOf(Math.round(weather.precipProbability * 100)), default=`50%`}"
+			android:text="@{String.valueOf(Math.round(weather.precipProbability * 100)) + `%`, default=`50%`}"
 			android:textColor="#fff"
 			android:textSize="25sp"
 			app:layout_constraintEnd_toEndOf="@+id/precipTitle"
