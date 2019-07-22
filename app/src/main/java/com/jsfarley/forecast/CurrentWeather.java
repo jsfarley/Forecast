@@ -1,34 +1,52 @@
 package com.jsfarley.forecast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class CurrentWeather {
 	private String locationValue;
 	private String icon;
-	private String summary;
+	private long time;
 	private double temperature;
 	private double humidity;
-	private double precipChance;
+	private double precipProbability;
+	private String summary;
 	private String timeZone;
-	private double lowTemp;
-	private double apparentTemp;
+
 
 	public CurrentWeather() {
 	}
-
 	public CurrentWeather(String locationValue, String icon, String summary, double temperature,
-	                      double humidity, double precipChance, String timeZone, double lowTemp,
-	                      double apparentTemp) {
+	                      double humidity, double precipProbability, String timeZone, long time) {
 		this.locationValue = locationValue;
 		this.icon = icon;
 		this.summary = summary;
 		this.temperature = temperature;
 		this.humidity = humidity;
-		this.precipChance = precipChance;
+		this.precipProbability = precipProbability;
 		this.timeZone = timeZone;
-		this.lowTemp = lowTemp;
-		this.apparentTemp = apparentTemp;
+		this.time = time;
+	}
+	public String getFormattedTime(){
+		SimpleDateFormat formatter = new SimpleDateFormat("h:mm:a");
+		formatter.setTimeZone(TimeZone.getTimeZone(timeZone));
+
+		Date dateTime = new Date(time * 1000);
+		return formatter.format(dateTime);
 	}
 
-	public double getLowTemp() {
+	public long getTime() {
+		return time;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+
+
+
+	/*public double getLowTemp() {
 		return lowTemp;
 	}
 
@@ -42,8 +60,7 @@ public class CurrentWeather {
 
 	public void setApparentTemp(double apparentTemp) {
 		this.apparentTemp = apparentTemp;
-	}
-
+	}*/
 
 	public String getTimeZone() {
 		return timeZone;
@@ -52,7 +69,6 @@ public class CurrentWeather {
 	public void setTimeZone(String timeZone) {
 		this.timeZone = timeZone;
 	}
-
 
 	public String getLocationValue() {
 		return locationValue;
@@ -131,14 +147,13 @@ public class CurrentWeather {
 		this.humidity = humidity;
 	}
 
-	public double getPrecipChance() {
-		return precipChance;
+	public double getPrecipProbability() {
+		return precipProbability;
 	}
 
-	public void setPrecipChance(double precipChance) {
-		this.precipChance = precipChance;
+	public void setPrecipProbability(double precipProbability) {
+		this.precipProbability = precipProbability;
 	}
-
 
 
 }

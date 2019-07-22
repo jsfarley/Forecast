@@ -9,7 +9,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
 import com.jsfarley.forecast.databinding.ActivityMainBinding;
@@ -75,16 +74,15 @@ public class MainActivity extends AppCompatActivity {
 
 							final CurrentWeather displayWeather = new CurrentWeather(
 									currentWeather.getLocationValue(),
+									currentWeather.getIcon(),
 									currentWeather.getSummary(),
-									currentWeather.getTimeZone(),
 									currentWeather.getTemperature(),
 									currentWeather.getHumidity(),
-									currentWeather.getPrecipChance(),
-									currentWeather.getIcon(),
-									currentWeather.getLowTemp(),
-									currentWeather.getApparentTemp()
-
+									currentWeather.getPrecipProbability(),
+									currentWeather.getTimeZone(),
+									currentWeather.getTime()
 							);
+							Log.d(TAG, currentWeather.getFormattedTime());
 							binding.setWeather(displayWeather);
 							runOnUiThread(new Runnable() {
 								@Override
@@ -114,22 +112,23 @@ public class MainActivity extends AppCompatActivity {
 		Log.i(TAG,"From JSON: " + timezone );
 
 		JSONObject currently = forecast.getJSONObject("currently");
-		JSONObject hourly = forecast.getJSONObject("hourly");
+		//JSONObject hourly = forecast.getJSONObject("hourly");
 
 		//Sets objects from CurrentWeather class and JSON data
 		CurrentWeather currentWeather = new CurrentWeather();
 		currentWeather.setHumidity(currently.getDouble("humidity"));
-		currentWeather.setPrecipChance(currently.getDouble("precipProbability"));
+		currentWeather.setPrecipProbability(currently.getDouble("precipProbability"));
 		currentWeather.setIcon(currently.getString("icon"));
 		//This will be updated to be based upon gps location
 		currentWeather.setLocationValue("Rock Island, IL");
-		currentWeather.setSummary(hourly.getString("summary"));
+		currentWeather.setTime(currently.getLong("time"));
+		currentWeather.setSummary(currently.getString("summary"));
 		currentWeather.setTemperature(currently.getDouble("temperature"));
-		currentWeather.setLowTemp(currently.getDouble("dewPoint"));
-		currentWeather.setApparentTemp(currently.getDouble("apparentTemperature"));
+		//currentWeather.setLowTemp(currently.getDouble("dewPoint"));
+		//currentWeather.setApparentTemp(currently.getDouble("apparentTemperature"));
 		currentWeather.setTimeZone(timezone);
 
-
+		//Log.d(TAG, currentWeather.getFormattedTime());
 		return currentWeather;
 	}
 
