@@ -44,8 +44,6 @@ public class CurrentWeather {
 		this.time = time;
 	}
 
-
-
 	/*public double getLowTemp() {
 		return lowTemp;
 	}

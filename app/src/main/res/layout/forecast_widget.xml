@@ -1,22 +1,21 @@
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="#09C"
+	android:background="@color/Weather"
 	android:padding="@dimen/widget_margin">
 
 
 		<TextView
-			android:id="@+id/appwidget_text"
+			android:id="@+id/defaultTemp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_centerHorizontal="true"
 			android:layout_centerVertical="true"
 			android:layout_marginTop="8dp"
 			android:layout_marginBottom="8dp"
-			android:background="#09C"
 			android:contentDescription="@string/appwidget_text"
 			android:fontFamily="@font/allerta"
 			android:text="@string/appwidget_text"
@@ -36,9 +35,9 @@
 		android:layout_marginStart="0dp"
 		android:layout_marginTop="30dp"
 		android:layout_marginEnd="0dp"
-		android:layout_toRightOf="@id/appwidget_text"
-		app:layout_constraintStart_toEndOf="@+id/appwidget_text"
-		app:layout_constraintTop_toTopOf="@+id/appwidget_text"
+		android:layout_toRightOf="@id/defaultTemp"
+		app:layout_constraintStart_toEndOf="@+id/defaultTemp"
+		app:layout_constraintTop_toTopOf="@+id/defaultTemp"
 		app:srcCompat="@drawable/degree" />
 
 	<TextView
@@ -54,14 +53,14 @@
 		android:layout_marginLeft="-34dp"
 		android:layout_marginEnd="-35dp"
 		android:layout_marginRight="-35dp"
-		android:layout_marginBottom="15dp"
+		android:layout_marginBottom="8dp"
 		android:fontFamily="@font/allerta"
 		android:text="Rock Island, IL"
 		android:textColor="#fff"
 		android:textSize="24sp"
-		app:layout_constraintBottom_toTopOf="@+id/appwidget_text"
+		app:layout_constraintBottom_toTopOf="@+id/defaultTemp"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.497"
+		app:layout_constraintHorizontal_bias="0.496"
 		app:layout_constraintStart_toStartOf="parent" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
