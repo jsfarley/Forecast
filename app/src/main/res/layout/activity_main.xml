@@ -83,7 +83,7 @@
 			android:layout_marginRight="20dp"
 			app:layout_constraintBottom_toBottomOf="@+id/locationValue"
 			app:layout_constraintEnd_toStartOf="@+id/locationValue"
-			app:srcCompat="@drawable/wind" />
+			app:srcCompat="@drawable/fpartly_cloudy" />
 
 		<ImageView
 			android:id="@+id/refreshIcon"
@@ -150,7 +150,7 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="20dp"
 			android:fontFamily="@font/allerta"
-			android:text="RAIN/SNOW?"
+			android:text="RAIN/SNOW"
 			android:textColor="@color/half_white"
 			app:layout_constraintEnd_toStartOf="@+id/guideline2"
 			app:layout_constraintStart_toStartOf="@+id/guideline2"

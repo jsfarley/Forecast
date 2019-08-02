@@ -14,7 +14,6 @@ public class CurrentWeather {
 	private String summary;
 	private String timeZone;
 
-
 	public CurrentWeather() {
 	}
 	public CurrentWeather(String locationValue, String icon, String summary, double temperature,
@@ -27,6 +26,7 @@ public class CurrentWeather {
 		this.precipProbability = precipProbability;
 		this.timeZone = timeZone;
 		this.time = time;
+
 	}
 	public String getFormattedTime(){
 		SimpleDateFormat formatter = new SimpleDateFormat("h:mm:a");
@@ -43,6 +43,7 @@ public class CurrentWeather {
 	public void setTime(long time) {
 		this.time = time;
 	}
+
 
 	/*public double getLowTemp() {
 		return lowTemp;
@@ -84,37 +85,40 @@ public class CurrentWeather {
 		this.icon = icon;
 	}
 	public int iconId() {
-		int iconId = R.drawable.clear_day;
+		int iconId = R.drawable.fsunny;
 		switch (icon) {
 			case "clear-day":
-				iconId = R.drawable.clear_day;
+				iconId = R.drawable.fsunny;
 				break;
 			case "clear-night":
-				iconId = R.drawable.clear_night;
+				iconId = R.drawable.fclear_night;
 				break;
 			case "rain":
-				iconId = R.drawable.rain;
+				iconId = R.drawable.frain;
 				break;
 			case "snow":
-				iconId = R.drawable.snow;
+				iconId = R.drawable.fsnow;
 				break;
 			case "sleet":
-				iconId = R.drawable.sleet;
+				iconId = R.drawable.fsleet;
 				break;
 			case "wind":
-				iconId = R.drawable.wind;
+				iconId = R.drawable.fwind;
 				break;
 			case "fog":
-				iconId = R.drawable.fog;
+				iconId = R.drawable.ffog;
 				break;
 			case "cloudy":
-				iconId = R.drawable.cloudy;
+				iconId = R.drawable.fcloudy;
 				break;
 			case "partly-cloudy-day":
-				iconId = R.drawable.partly_cloudy;
+				iconId = R.drawable.fpartly_cloudy;
 				break;
 			case "partly-cloudy-night":
-				iconId = R.drawable.cloudy_night;
+				iconId = R.drawable.fcloudy_night;
+				break;
+			case "thunderstorm":
+				iconId = R.drawable.fthunder_storm;
 				break;
 
 		}
