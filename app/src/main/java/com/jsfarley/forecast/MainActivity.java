@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
 	private CurrentWeather currentWeather;
 	private ImageView iconImageView;
-	final double latitude = 41.5095;
-	final double longitude = -90.5787;
+	final double latitude = 29.8833;
+	final double longitude = -97.9414;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
 				R.layout.activity_main);
 
 		String apiKey = "bf0b68ba54650be9dd914dc48c709de2";
-		//double latitude = 41.5236;
-		//double longitude = -90.5776;
 		String forecastURL = "https://api.darksky.net/forecast/"+apiKey+ "/"+latitude+","+longitude;
 
 		iconImageView = findViewById(R.id.iconImageView);
@@ -122,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 		currentWeather.setPrecipProbability(currently.getDouble("precipProbability"));
 		currentWeather.setIcon(currently.getString("icon"));
 		//This will be updated to be based upon gps location
-		currentWeather.setLocationValue("Rock Island, IL");
+		currentWeather.setLocationValue("San Marcos, TX");
 		currentWeather.setTime(currently.getLong("time"));
 		currentWeather.setSummary(currently.getString("summary"));
 		currentWeather.setTemperature(currently.getDouble("temperature"));
