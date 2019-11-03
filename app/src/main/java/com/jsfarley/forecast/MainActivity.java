@@ -1,9 +1,14 @@
 package com.jsfarley.forecast;
 
+import android.app.ActionBar;
 import android.content.Context;
+import android.databinding.DataBindingComponent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -14,6 +19,7 @@ import android.widget.Toast;
 
 
 import com.jsfarley.forecast.databinding.ActivityMainBinding;
+import com.jsfarley.forecast.databinding.ActivityMainBindingImpl;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -35,22 +41,24 @@ public class MainActivity extends AppCompatActivity {
 	private ImageView iconImageView;
 	final double latitude = 29.8833;
 	final double longitude = -97.9414;
+	ConstraintLayout constraintLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		getForecast(latitude, longitude);
+
 	}
+
 
 	private void getForecast(double latitude, double longitude){
 		final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this,
 				R.layout.activity_main);
-
 		String apiKey = "bf0b68ba54650be9dd914dc48c709de2";
 		String forecastURL = "https://api.darksky.net/forecast/"+apiKey+ "/"+latitude+","+longitude;
 
 		iconImageView = findViewById(R.id.iconImageView);
+		constraintLayout = findViewById(R.id.linearLayout);
 
 		if(isNetworkAvailable()) {
 			
@@ -80,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
 									currentWeather.getHumidity(),
 									currentWeather.getPrecipProbability(),
 									currentWeather.getTimeZone(),
-									currentWeather.getTime()
+									currentWeather.getTime(),
+									currentWeather.getWeatherColor()
 							);
 							Log.d(TAG, currentWeather.getFormattedTime());
 							binding.setWeather(displayWeather);
@@ -88,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 								@Override
 								public void run() {
 									Drawable drawable = (Drawable) getResources().getDrawable(displayWeather.iconId());
-
 									iconImageView.setImageDrawable(drawable);
+									constraintLayout.setBackgroundColor(displayWeather.weatherColorId());
 								}
 							});
 						} else {
@@ -127,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 		//currentWeather.setLowTemp(currently.getDouble("dewPoint"));
 		//currentWeather.setApparentTemp(currently.getDouble("apparentTemperature"));
 		currentWeather.setTimeZone(timezone);
-
+		currentWeather.setWeatherColor(currently.getString("icon"));
 		//Log.d(TAG, currentWeather.getFormattedTime());
 		return currentWeather;
 	}

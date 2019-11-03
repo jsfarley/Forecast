@@ -1,5 +1,7 @@
 package com.jsfarley.forecast;
 
+import android.graphics.Color;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -13,11 +15,15 @@ public class CurrentWeather {
 	private double precipProbability;
 	private String summary;
 	private String timeZone;
+	private String weatherColor;
+
+
 
 	public CurrentWeather() {
 	}
 	public CurrentWeather(String locationValue, String icon, String summary, double temperature,
-	                      double humidity, double precipProbability, String timeZone, long time) {
+	                      double humidity, double precipProbability, String timeZone, long time, String weatherColor
+	                      ) {
 		this.locationValue = locationValue;
 		this.icon = icon;
 		this.summary = summary;
@@ -26,7 +32,7 @@ public class CurrentWeather {
 		this.precipProbability = precipProbability;
 		this.timeZone = timeZone;
 		this.time = time;
-
+		this.weatherColor = weatherColor;
 	}
 	public String getFormattedTime(){
 		SimpleDateFormat formatter = new SimpleDateFormat("h:mm:a");
@@ -85,6 +91,7 @@ public class CurrentWeather {
 		this.icon = icon;
 	}
 	public int iconId() {
+
 		int iconId = R.drawable.fsunny;
 		switch (icon) {
 			case "clear-day":
@@ -123,6 +130,52 @@ public class CurrentWeather {
 
 		}
 		return iconId;
+	}
+
+	public String getWeatherColor() {
+		return weatherColor;
+	}
+	public void setWeatherColor(String weatherColor) {
+		this.weatherColor = weatherColor;
+	}
+	public int weatherColorId(){
+		int weatherColorId = Color.parseColor("#FF0F74C2");
+		switch (icon){
+			case "clear-day":
+				weatherColorId = Color.parseColor("#FF0F74C2");
+				break;
+			case "clear-night":
+				weatherColorId = Color.parseColor("#3D044A");
+				break;
+			case "rain":
+				weatherColorId = Color.parseColor("#73A2BF");
+				break;
+			case "snow":
+				weatherColorId = Color.parseColor("#99ADBF");
+				break;
+			case "sleet":
+				weatherColorId = Color.parseColor("#99ADBF");
+				break;
+			case "wind":
+				weatherColorId = Color.parseColor("#7EC6F2");
+				break;
+			case "fog":
+				weatherColorId = Color.parseColor("#979C9C");
+				break;
+			case "cloudy":
+				weatherColorId = Color.parseColor("#979C9C");
+				break;
+			case "partly-cloudy-day":
+				weatherColorId = Color.parseColor("#FF0F74C2");
+				break;
+			case "partly-cloudy-night":
+				weatherColorId = Color.parseColor("#3D044A");
+				break;
+			case "thunderstorm":
+				weatherColorId = Color.parseColor("#73A2BF");
+				break;
+		}
+	return weatherColorId;
 	}
 
 	public String getSummary() {
