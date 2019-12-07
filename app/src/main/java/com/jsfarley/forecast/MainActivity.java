@@ -14,12 +14,16 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
 import com.jsfarley.forecast.databinding.ActivityMainBinding;
-import com.jsfarley.forecast.databinding.ActivityMainBindingImpl;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
@@ -99,6 +103,18 @@ public class MainActivity extends AppCompatActivity {
 									Drawable drawable = (Drawable) getResources().getDrawable(displayWeather.iconId());
 									iconImageView.setImageDrawable(drawable);
 									constraintLayout.setBackgroundColor(displayWeather.weatherColorId());
+
+									//Animates background color
+									//constraintLayout.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.slide_in_left));
+
+									Animation fadeIn = new AlphaAnimation(0,1);
+									fadeIn.setInterpolator(new DecelerateInterpolator());
+									fadeIn.setDuration(1000);
+
+									AnimationSet animation = new AnimationSet(false);
+									animation.addAnimation(fadeIn);
+									constraintLayout.setAnimation(animation);
+
 								}
 							});
 						} else {
