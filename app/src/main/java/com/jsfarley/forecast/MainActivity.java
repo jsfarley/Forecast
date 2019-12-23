@@ -1,10 +1,6 @@
 package com.jsfarley.forecast;
 
-import android.app.ActionBar;
 import android.content.Context;
-import android.databinding.DataBindingComponent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -17,7 +13,6 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -56,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 	private void getForecast(double latitude, double longitude){
-		final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this,
-				R.layout.activity_main);
+		final ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
 		String apiKey = "bf0b68ba54650be9dd914dc48c709de2";
 		String forecastURL = "https://api.darksky.net/forecast/"+apiKey+ "/"+latitude+","+longitude;
 
