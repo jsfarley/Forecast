@@ -1,10 +1,14 @@
 package com.jsfarley.forecast;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+
+import static com.jsfarley.forecast.R.*;
 
 public class CurrentWeather {
 	private String locationValue;
@@ -19,11 +23,11 @@ public class CurrentWeather {
 
 
 
+
 	public CurrentWeather() {
 	}
 	public CurrentWeather(String locationValue, String icon, String summary, double temperature,
-	                      double humidity, double precipProbability, String timeZone, long time, String weatherColor
-	                      ) {
+	                      double humidity, double precipProbability, String timeZone, long time, String weatherColor ) {
 		this.locationValue = locationValue;
 		this.icon = icon;
 		this.summary = summary;
@@ -92,45 +96,47 @@ public class CurrentWeather {
 	}
 	public int iconId() {
 
-		int iconId = R.drawable.fsunny;
+		int iconId = drawable.fsunny;
 		switch (icon) {
 			case "clear-day":
-				iconId = R.drawable.fsunny;
+				iconId = drawable.fsunny;
 				break;
 			case "clear-night":
-				iconId = R.drawable.fclear_night;
+				iconId = drawable.fclear_night;
 				break;
 			case "rain":
-				iconId = R.drawable.frain;
+				iconId = drawable.frain;
 				break;
 			case "snow":
-				iconId = R.drawable.fsnow;
+				iconId = drawable.fsnow;
 				break;
 			case "sleet":
-				iconId = R.drawable.fsleet;
+				iconId = drawable.fsleet;
 				break;
 			case "wind":
-				iconId = R.drawable.fwind;
+				iconId = drawable.fwind;
 				break;
 			case "fog":
-				iconId = R.drawable.ffog;
+				iconId = drawable.ffog;
 				break;
 			case "cloudy":
-				iconId = R.drawable.fcloudy;
+				iconId = drawable.fcloudy;
 				break;
 			case "partly-cloudy-day":
-				iconId = R.drawable.fpartly_cloudy;
+				iconId = drawable.fpartly_cloudy;
 				break;
 			case "partly-cloudy-night":
-				iconId = R.drawable.fcloudy_night;
+				iconId = drawable.fcloudy_night;
 				break;
 			case "thunderstorm":
-				iconId = R.drawable.fthunder_storm;
+				iconId = drawable.fthunder_storm;
 				break;
 
 		}
 		return iconId;
 	}
+
+
 
 	public String getWeatherColor() {
 		return weatherColor;
@@ -139,44 +145,48 @@ public class CurrentWeather {
 		this.weatherColor = weatherColor;
 	}
 	public int weatherColorId(){
-		int weatherColorId = Color.parseColor("#FF0F74C2");
+
+		//int weatherColorId = Color.parseColor("#FF0F74C2");
+		int weatherColorId = drawable.drawable_clear_gradient;
 		switch (icon){
 			case "clear-day":
-				weatherColorId = Color.parseColor("#FF0F74C2");
+				//weatherColorId = Color.parseColor("#FF0F74C2");
+				weatherColorId = drawable.drawable_clear_gradient;
 				break;
 			case "clear-night":
-				weatherColorId = Color.parseColor("#3D044A");
+				weatherColorId = drawable.drawable_clear_night_gradient;
 				break;
 			case "rain":
-				weatherColorId = Color.parseColor("#73A2BF");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "snow":
-				weatherColorId = Color.parseColor("#99ADBF");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "sleet":
-				weatherColorId = Color.parseColor("#99ADBF");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "wind":
-				weatherColorId = Color.parseColor("#7EC6F2");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "fog":
-				weatherColorId = Color.parseColor("#979C9C");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "cloudy":
-				weatherColorId = Color.parseColor("#979C9C");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "partly-cloudy-day":
-				weatherColorId = Color.parseColor("#FF0F74C2");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "partly-cloudy-night":
-				weatherColorId = Color.parseColor("#3D044A");
+				weatherColorId = drawable.drawable_clear_night_gradient;
 				break;
 			case "thunderstorm":
-				weatherColorId = Color.parseColor("#73A2BF");
+				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 		}
 	return weatherColorId;
 	}
+
 
 	public String getSummary() {
 		return summary;

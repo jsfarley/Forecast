@@ -95,8 +95,12 @@ public class MainActivity extends AppCompatActivity {
 								@Override
 								public void run() {
 									Drawable drawable = (Drawable) getResources().getDrawable(displayWeather.iconId());
+									Drawable gradientDrawable = (Drawable) getResources().getDrawable(displayWeather.weatherColorId());
 									iconImageView.setImageDrawable(drawable);
-									constraintLayout.setBackgroundColor(displayWeather.weatherColorId());
+									//constraintLayout.setBackgroundColor(displayWeather.weatherColorId());
+									constraintLayout.setBackground(gradientDrawable);
+
+
 
 									//Animates background color
 									//constraintLayout.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.slide_in_left));
