@@ -157,31 +157,31 @@ public class CurrentWeather {
 				weatherColorId = drawable.drawable_clear_night_gradient;
 				break;
 			case "rain":
-				weatherColorId =drawable.drawable_clear_gradient ;
+				weatherColorId =drawable.drawable_cloudy_gradient ;
 				break;
 			case "snow":
-				weatherColorId =drawable.drawable_clear_gradient ;
+				weatherColorId =drawable.drawable_cloudy_gradient ;
 				break;
 			case "sleet":
-				weatherColorId =drawable.drawable_clear_gradient ;
+				weatherColorId =drawable.drawable_cloudy_gradient ;
 				break;
 			case "wind":
 				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "fog":
-				weatherColorId =drawable.drawable_clear_gradient ;
+				weatherColorId =drawable.drawable_cloudy_gradient ;
 				break;
 			case "cloudy":
-				weatherColorId =drawable.drawable_clear_gradient ;
+				weatherColorId =drawable.drawable_cloudy_gradient ;
 				break;
 			case "partly-cloudy-day":
 				weatherColorId =drawable.drawable_clear_gradient ;
 				break;
 			case "partly-cloudy-night":
-				weatherColorId = drawable.drawable_clear_night_gradient;
+				weatherColorId = drawable.drawable_cloudy_night_gradient;
 				break;
 			case "thunderstorm":
-				weatherColorId =drawable.drawable_clear_gradient ;
+				weatherColorId =drawable.drawable_cloudy_gradient ;
 				break;
 		}
 	return weatherColorId;

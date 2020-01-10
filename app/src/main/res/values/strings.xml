@@ -10,4 +10,5 @@
 	<string name="network_dialog_title">Network Unavailable</string>
 	<string name="network_dialog_butn_text">OK</string>
 	<string name="temp_title">The temperature is</string>
+	<string name="humor_summary">It\'\s clear sky\'\s again..... Reminds me of a song. </string>
 </resources>
