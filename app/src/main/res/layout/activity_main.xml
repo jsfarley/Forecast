@@ -18,52 +18,47 @@
 	android:layout_height="match_parent"
 	android:orientation='vertical'>
 
+
 	<TextView
 		android:id="@+id/defaultTemp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="150dp"
 		android:fontFamily="sans-serif-condensed"
-		android:text="187"
+		android:text="@{String.valueOf(Math.round(weather.temperature)), default=`107`}"
 		android:textColor="@color/half_white"
-		android:textSize="235sp"
+		android:textSize="240sp"
+		app:layout_constraintBottom_toTopOf="@+id/summaryValue"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.456" />
 
 	<TextView
 		android:id="@+id/tempTitle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginTop="12dp"
 		android:fontFamily="@font/allerta"
 		android:text="@{String.valueOf(weather.formattedTime), default=`Feels Like`}"
 		android:textColor="#fff"
 		android:textSize="24sp"
-		tools:layout_editor_absoluteX="166dp"
-		tools:layout_editor_absoluteY="267dp" />
-
+		app:layout_constraintEnd_toStartOf="@+id/actualTemp"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="@+id/airQualityTitle"
+		app:layout_constraintTop_toBottomOf="@+id/iconImageView" />
 
 	<TextView
 		android:id="@+id/actualTemp"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginEnd="88dp"
 		android:fontFamily="@font/allerta"
 		android:text="@{String.valueOf(weather.formattedTime), default=`55`}"
 		android:textColor="#fff"
 		android:textSize="24sp"
-		tools:layout_editor_absoluteX="300dp"
-		tools:layout_editor_absoluteY="267dp" />
-
-	<TextView
-		android:id="@+id/airQualityTitle"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:fontFamily="@font/allerta"
-		android:text="@{String.valueOf(weather.formattedTime), default=`Air Quality:`}"
-		android:textColor="#fff"
-		android:textSize="24sp"
-		tools:layout_editor_absoluteX="166dp"
-		tools:layout_editor_absoluteY="302dp" />
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="@+id/guideline2"
+		app:layout_constraintTop_toTopOf="@+id/tempTitle" />
 
 	<TextView
 		android:id="@+id/airQuality"
@@ -73,38 +68,59 @@
 		android:text="@{String.valueOf(weather.formattedTime), default=`Good`}"
 		android:textColor="#39B54A"
 		android:textSize="24sp"
-		tools:layout_editor_absoluteX="301dp"
-		tools:layout_editor_absoluteY="302dp" />
+		app:layout_constraintBottom_toBottomOf="@+id/airQualityTitle"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.17"
+		app:layout_constraintStart_toEndOf="@+id/airQualityTitle" />
+
+	<TextView
+		android:id="@+id/airQualityTitle"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="48dp"
+		android:layout_marginTop="12dp"
+		android:fontFamily="@font/allerta"
+		android:text="@{String.valueOf(weather.formattedTime), default=`Air Quality:`}"
+		android:textColor="#fff"
+		android:textSize="24sp"
+		app:layout_constraintStart_toStartOf="@+id/guideline"
+		app:layout_constraintTop_toBottomOf="@+id/tempTitle" />
 
 	<TextView
 		android:id="@+id/locationValue"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginBottom="40dp"
 		android:fontFamily="@font/allerta"
 		android:text="Location"
 		android:textColor="#ffff"
 		android:textSize="25sp"
+		app:layout_constraintBottom_toTopOf="@+id/defaultTemp"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		tools:layout_editor_absoluteY="91dp" />
+		app:layout_constraintStart_toStartOf="parent" />
 
 	<ImageView
 		android:id="@+id/imageView"
 		android:layout_width="10dp"
 		android:layout_height="10dp"
-		app:srcCompat="@drawable/degree"
-		tools:layout_editor_absoluteX="329dp"
-		tools:layout_editor_absoluteY="274dp" />
+		app:layout_constraintStart_toEndOf="@+id/actualTemp"
+		app:layout_constraintTop_toTopOf="@+id/actualTemp"
+		app:srcCompat="@drawable/degree" />
 
 	<ImageView
+		android:contentDescription="Icon"
 		android:id="@+id/iconImageView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		app:srcCompat="@drawable/fpartly_cloudy"
-		tools:layout_editor_absoluteX="250dp"
-		tools:layout_editor_absoluteY="252dp" />
+		android:layout_marginTop="76dp"
+		app:layout_constraintEnd_toStartOf="@+id/guideline2"
+		app:layout_constraintHorizontal_bias="0.035"
+		app:layout_constraintStart_toStartOf="@+id/tempTitle"
+		app:layout_constraintTop_toTopOf="@+id/defaultTemp"
+		app:srcCompat="@drawable/fpartly_cloudy" />
 
 	<ImageView
+			android:contentDescription="Icon Refresh"
 			android:id="@+id/refreshIcon"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -142,13 +158,15 @@
 		android:id="@+id/humidityTitle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginStart="20dp"
+		android:layout_marginTop="80dp"
 		android:fontFamily="@font/allerta"
 		android:text="HUMIDITY"
 		android:textColor="#fff"
-		tools:layout_editor_absoluteX="97dp"
-		tools:layout_editor_absoluteY="542dp" />
+		app:layout_constraintStart_toStartOf="@+id/guideline6"
+		app:layout_constraintTop_toBottomOf="@+id/defaultTemp" />
 
-		<TextView
+	<TextView
 			android:id="@+id/humidityValue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -165,13 +183,15 @@
 		android:id="@+id/precipTitle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginStart="92dp"
+		android:layout_marginTop="80dp"
 		android:fontFamily="@font/allerta"
 		android:text="RAIN/SNOW"
-		android:textColor="@color/half_white"
-		tools:layout_editor_absoluteX="262dp"
-		tools:layout_editor_absoluteY="542dp" />
+		android:textColor="#fff"
+		app:layout_constraintStart_toEndOf="@+id/humidityTitle"
+		app:layout_constraintTop_toBottomOf="@+id/defaultTemp" />
 
-		<TextView
+	<TextView
 			android:id="@+id/precipValue"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -189,15 +209,14 @@
 		android:id="@+id/summaryValue"
 		android:layout_width="337dp"
 		android:layout_height="121dp"
-		android:layout_marginTop="72dp"
+		android:layout_marginTop="44dp"
 		android:fontFamily="@font/allerta"
 		android:text="@{String.valueOf(weather.summary), default=`@string/humor_summary`}"
 		android:textColor="#fff"
 		android:textSize="30sp"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.581"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/precipValue" />
+		app:layout_constraintTop_toBottomOf="@+id/humidityValue" />
 
 	<android.support.constraint.Guideline
 			android:id="@+id/guideline4"

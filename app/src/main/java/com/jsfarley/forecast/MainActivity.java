@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 				public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
 					try {
 						String jsonData = response.body().string();
-						Log.v(TAG, jsonData);
+						//Log.v(TAG, jsonData);
 						if (response.isSuccessful()) {
 							currentWeather = getCurrentDetails(jsonData);
 
